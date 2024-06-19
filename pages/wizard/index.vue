@@ -6,7 +6,7 @@
           color="blue"
           :variant="index === currentStepIndex ? 'solid' : 'outline'"
           v-for="(step, index) in steps"
-          @click="setCurrentStep(step.key, index)"
+          @click="setCurrentStep(step)"
         >
           <span class="md:block hidden">{{ step.label }}</span>
           <span class="md:hidden block">{{ step.number }}</span>
@@ -26,14 +26,14 @@
 
     <div class=" mt-12 fixed md:bottom-4 md:right-14 bottom-7 flex gap-x-2">
       <UButton
-        @click="setCurrentStep(steps[currentStepIndex - 1].key, currentStepIndex - 1)"
+        @click="setCurrentStep(steps[currentStepIndex - 1])"
         :disabled="currentStepIndex === 0"
         color="blue"
       >
       <span class="i-heroicons-arrow-left"></span>
       </UButton>
       <UButton
-        @click="setCurrentStep(steps[currentStepIndex + 1].key, currentStepIndex + 1)"
+        @click="setCurrentStep(steps[currentStepIndex + 1])"
         :disabled="currentStepIndex === steps.length - 1"
         color="blue"
       >
@@ -54,6 +54,12 @@
         }
     ]
 })
+
+type step = {
+    key: string;
+    label: string;
+    number: number;
+}
   
   const steps = [
     {
@@ -76,10 +82,10 @@
   const currentStep = ref('Drop');
   const currentStepIndex = ref(0);
   
-  const setCurrentStep = (key: string, index: number) => {
-    currentStep.value = key;
-    currentStepIndex.value = index;
-  };
+  const setCurrentStep = (step: step) => {
+  currentStep.value = step.key;
+  currentStepIndex.value = steps.findIndex(s => s.key === step.key);
+};
   </script>
   
   <style scoped>
