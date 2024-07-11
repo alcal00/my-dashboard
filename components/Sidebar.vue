@@ -10,7 +10,7 @@
       <UDashboardSidebarLinks :links="links" />
 
     </UDashboardSidebar>
-    <UDashboardSlideover v-model="open" title="Notifications" />
+
   </UDashboardPanel>
 
 
