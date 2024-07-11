@@ -5,13 +5,14 @@
         <div class="max-w-sm">
 
             <ppw-dropdown />
+            <UButton label="Show toast" class="mt-2" @click="toast.add({ id: 'hello', title: 'Hello world!' })" />
         </div>
 
     </div>
 </template>
 
 <script setup lang="ts"> 
-
+const toast = useToast()
 </script>
 
 <style scoped>
