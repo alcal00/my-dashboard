@@ -1,13 +1,32 @@
 <template>
-    <div class="w-72 p-4">
-      <UDashboardSidebar>
-        <UDashboardSidebarLinks :links="links" class="text-xl" />
-      </UDashboardSidebar>
-    </div>
+  <UDashboardPanel collapsible>
+   
+
+    <UDashboardSidebar>
+      <template #header>
+        <UDashboardSearchButton />
+      </template>
+
+      <UDashboardSidebarLinks :links="links" />
+
+    </UDashboardSidebar>
+    <UDashboardSlideover v-model="open" title="Notifications" />
+  </UDashboardPanel>
+
+
+
   </template>
 
 
 <script setup lang="ts">
+const open = ref(true)
+
+// This is a hack to keep the slideover open
+watch(open, (value) => {
+  if (!value) {
+    setTimeout(() => open.value = true, 1000)
+  }
+})
 const links = [{
   label: 'My Dash',
   icon: 'i-heroicons-home',
