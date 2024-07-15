@@ -247,6 +247,12 @@ export default defineNuxtConfig({
 
   },
 
-  "target" : "static"
+  "target" : "static",
+
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false
+    }
+  }
 
 })
