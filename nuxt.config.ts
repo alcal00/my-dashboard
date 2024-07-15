@@ -251,8 +251,15 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      autoSubfolderIndex: false
-    }
-  }
+      ignore: [
+        '/fr/blog/atel_paf_usurp_id',
+        '/fr/blog/atel_fraude_iban',
+        '/fr/blog/atel_dr',
+        '/fr/blog/atel_craft_pdf_augm',
+        '/fr/blog/atel_maq-_cl'
+        
+      ],
+    },
+  },
 
 })
