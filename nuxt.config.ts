@@ -264,6 +264,11 @@ export default defineNuxtConfig({
         '/fr/blog/atel_maq-_cl',
         '/docs/front/components/ppw-features-section'
       ],
-    },
+    }, 
+    output: {
+      dir: 'output',
+      serverDir: 'output/server',
+      publicDir: 'output/public'
+  }
   },
 })
