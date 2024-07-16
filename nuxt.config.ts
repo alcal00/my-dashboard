@@ -261,8 +261,8 @@ export default defineNuxtConfig({
         '/fr/blog/atel_fraude_iban',
         '/fr/blog/atel_dr',
         '/fr/blog/atel_craft_pdf_augm',
-        '/fr/blog/atel_maq-_cl'
-
+        '/fr/blog/atel_maq-_cl',
+        '/docs/front/components/ppw-features-section'
       ],
     },
   },
